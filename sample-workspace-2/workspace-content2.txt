@@ -1,0 +1,2 @@
+this is the sample workspace content for workspace 2
+Have fun :)
