@@ -26,10 +26,7 @@
 <BODY>
     <H1>This is a Header</H1>
 
-    <a href="#" id="sw1">Sample Workspace 1</a><br />
-    <a href="#" id="sw2">Sample Workspace 2</a><br />
-    <a href="#" id="cw">Check workspace by clicking here</a> <br />
-    <button id="sendButton" onclick="postTheMessage()">Send workspace uri to theia iframe</button>
+    <button id="sendButton" onclick="getSessionValues()">Check your session storage values</button>
 
     <div class="row-container">
         <iframe src="http://localhost:3000/" id="theia" class="second-row"></iframe>
@@ -37,35 +34,21 @@
 
     <script>
         var fileURI = '';
-        function init() {
-            var sw1_element = document.getElementById('sw1');
-            sw1_element.onclick = function () {
-                fileURI = 'file:///home/nicholas/Documents/theia%20switch%20workspace/sample-workspace-1/';
-                return false;
-            }
+        function getSessionValues() {
+            // var theia_iframe = document.getElementById('theia').contentWindow;
+            // theia_iframe.postMessage(fileURI, "*")
+            // // alert(fileURI);
 
-            var sw2_element = document.getElementById('sw2');
-            sw2_element.onclick = function () {
-                fileURI = 'file:///home/nicholas/Documents/theia%20switch%20workspace/sample-workspace-2/';
-                return false;
-            }
-
-            var cw_element = document.getElementById('cw');
-            cw_element.onclick = function () {
-                alert(fileURI);
-                return false;
-            }
+            alert("The returned values from sessionStorage is " + sessionStorage.getItem('Workspace'))
         }
 
-        window.onload = init;
+        // function postTheMessage() {
+        //     var theia_iframe = document.getElementById('theia').contentWindow;
+        //     theia_iframe.postMessage(fileURI, "*")
+        //     // alert(fileURI);
+        // }
 
-        function postTheMessage() {
-            var theia_iframe = document.getElementById('theia').contentWindow;
-            theia_iframe.postMessage(fileURI, "*")
-            // alert(fileURI);
-        }
-
-        window.onload = send_fileURI;
+        // window.onload = send_fileURI;
 
     </script>
 </BODY>

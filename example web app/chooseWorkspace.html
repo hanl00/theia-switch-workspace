@@ -8,10 +8,10 @@
 <body>
     <H1>Choose your workspace!</H1>
 
-    <a href="#" id="sw1">Sample Workspace 1</a><br />
-    <a href="#" id="sw2">Sample Workspace 2</a><br />
+    <a href="./theia-iframe.html" id="sw1">Sample Workspace 1</a><br />
+    <a href="./theia-iframe.html.html" id="sw2">Sample Workspace 2</a><br />
     <a href="#" id="cw">Check workspace by clicking here</a> <br />
-    <button id="sendButton" onclick="postTheMessage()">Check your session storage values</button>
+    <!-- <button id="sendButton" onclick="postTheMessage()">Check your session storage values</button> -->
 
     <!-- <input type="button" value="mybutton1" onclick="dosomething()">test
     <form>
@@ -27,6 +27,7 @@
             sw1_element.onclick = function () {
                 fileURI = 'file:///home/nicholas/Documents/theia%20switch%20workspace/sample-workspace-1/';
                 sessionStorage.setItem("Workspace", fileURI)
+
                 return false;
             }
 
