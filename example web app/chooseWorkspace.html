@@ -2,32 +2,57 @@
 
 <head>
 
-    <title>Your Title Here</title>
-
-    <script>
-        var childwin;
-        const childname = "popup";
-        function openChild() {
-            childwin = window.open('theia-iframe.html', childname, 'height=300px, width=500px');
-
-        }
-        function sendMessage() {
-            let msg = { pName: "Bob", pAge: "35" };
-            // In production, DO NOT use '*', use toe target domain
-            childwin.postMessage(msg, '*')// childwin is the targetWindow
-            childwin.focus();
-        }
-    </script>
+    <title>Your Title Here, choose your workspace here</title>
 </head>
 
 <body>
     <H1>Choose your workspace!</H1>
-    <input type="button" value="mybutton1" onclick="dosomething()">test
+
+    <a href="#" id="sw1">Sample Workspace 1</a><br />
+    <a href="#" id="sw2">Sample Workspace 2</a><br />
+    <a href="#" id="cw">Check workspace by clicking here</a> <br />
+    <button id="sendButton" onclick="postTheMessage()">Check your session storage values</button>
+
+    <!-- <input type="button" value="mybutton1" onclick="dosomething()">test
     <form>
         <fieldset>
             <input type='button' id='btnopen' value='Open child' onclick='openChild();' />
             <input type='button' id='btnSendMsg' value='Send Message' onclick='sendMessage();' />
         </fieldset>
-    </form>
-</body>
+    </form> -->
+    <script>
+        var fileURI = '';
+        function init() {
+            var sw1_element = document.getElementById('sw1');
+            sw1_element.onclick = function () {
+                fileURI = 'file:///home/nicholas/Documents/theia%20switch%20workspace/sample-workspace-1/';
+                sessionStorage.setItem("Workspace", fileURI)
+                return false;
+            }
 
+            var sw2_element = document.getElementById('sw2');
+            sw2_element.onclick = function () {
+                fileURI = 'file:///home/nicholas/Documents/theia%20switch%20workspace/sample-workspace-2/';
+                sessionStorage.setItem("Workspace", fileURI)
+                return false;
+            }
+
+            var cw_element = document.getElementById('cw');
+            cw_element.onclick = function () {
+                alert(fileURI);
+                return false;
+            }
+        }
+
+        window.onload = init;
+
+        function postTheMessage() {
+            // var theia_iframe = document.getElementById('theia').contentWindow;
+            // theia_iframe.postMessage(fileURI, "*")
+            // // alert(fileURI);
+
+            alert("The returned values from sessionStorage is " + sessionStorage.getItem('Workspace'))
+        }
+
+    </script>
+</body>
