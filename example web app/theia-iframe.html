@@ -24,8 +24,48 @@
 </HEAD>
 
 <BODY>
-    <H1>This is a Header</H1>
+    <H1>This is a Header, choose your filepath</H1>
+
+    <a href="#" id="sw1">Sample Workspace 1</a><br />
+    <a href="#" id="sw2">Sample Workspace 2</a><br />
+    <a href="#" id="cw">Check workspace by clicking here</a> <br />
+    <button id="sendButton" onclick="postTheMessage()">Send workspace uri to theia iframe</button>
+
     <div class="row-container">
-        <iframe src="http://localhost:3000/" class="second-row"></iframe>
+        <iframe src="http://localhost:3000/" id="theia" class="second-row"></iframe>
     </div>
+
+    <script>
+        var fileURI = '';
+        function init() {
+            var sw1_element = document.getElementById('sw1');
+            sw1_element.onclick = function () {
+                fileURI = 'file:///home/nicholas/Documents/theia%20switch%20workspace/sample-workspace-1/';
+                return false;
+            }
+
+            var sw2_element = document.getElementById('sw2');
+            sw2_element.onclick = function () {
+                fileURI = 'file:///home/nicholas/Documents/theia%20switch%20workspace/sample-workspace-2/';
+                return false;
+            }
+
+            var cw_element = document.getElementById('cw');
+            cw_element.onclick = function () {
+                alert(fileURI);
+                return false;
+            }
+        }
+
+        window.onload = init;
+
+        function postTheMessage() {
+            var theia_iframe = document.getElementById('theia').contentWindow;
+            theia_iframe.postMessage(fileURI, "*")
+            // alert(fileURI);
+        }
+
+        window.onload = send_fileURI;
+
+    </script>
 </BODY>

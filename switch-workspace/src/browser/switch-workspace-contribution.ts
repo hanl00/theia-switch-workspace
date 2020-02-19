@@ -51,7 +51,7 @@ export class SwitchWorkspaceFrontendContribution implements FrontendApplicationC
         });
         if (await dialog.open()) {
             await this.workspaceService.close();
-            await this.workspaceService.open(new URI("file://{filelocation-example}" + event.data));
+            await this.workspaceService.open(new URI(event.data));
         }
     }
     
@@ -62,8 +62,10 @@ export class SwitchWorkspaceFrontendContribution implements FrontendApplicationC
                 return;
             }
             alert("message arrived");
+            alert(event.data)
             this.switchWorkspace(event);
           } catch (e) {
+            alert("exception")
             console.error('Invalid json', event);
           }
           alert("did nothing");
