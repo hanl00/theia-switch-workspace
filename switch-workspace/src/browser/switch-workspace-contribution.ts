@@ -57,19 +57,16 @@ export class SwitchWorkspaceFrontendContribution implements FrontendApplicationC
     
     protected callback(event : any): void {
         try {
-            if ( event.data.startsWith('setImmediate') )
-            {
+            if ( event.data.startsWith('setImmediate') ) {
+                alert("starts with setImmediate");
                 return;
             }
-            alert("message arrived");
-            alert(event.data)
+            alert("switching workspace to " + event.data);
             this.switchWorkspace(event);
           } catch (e) {
-            alert("exception")
-            console.error('Invalid json', event);
-          }
-          alert("did nothing");
-        	  
+            alert("exception");
+            console.log(e)
+          }	  
     }
     
     onStart(app: FrontendApplication): void {
