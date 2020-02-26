@@ -1,7 +1,7 @@
 <HTML>
 
 <HEAD>
-
+    <script src="jquery-3.4.1.min.js"></script>
     <TITLE>Your Title Here</TITLE>
 
     <style>
@@ -36,36 +36,59 @@
     </div>
 
     <script>
-        var fileURI = '';
-        function init() {
-            var sw1_element = document.getElementById('sw1');
-            sw1_element.onclick = function () {
-                fileURI = 'file:///home/nicholas/Documents/theia-switch-workspace/sample-workspace-1/';
-                return false;
-            }
+        // var fileURI = '';
+        // function init() {
+        //     var sw1_element = document.getElementById('sw1');
+        //     sw1_element.onclick = function () {
+        //         fileURI = 'file:///home/nicholas/Documents/theia-switch-workspace/sample-workspace-1/';
+        //         return false;
+        //     }
 
-            var sw2_element = document.getElementById('sw2');
-            sw2_element.onclick = function () {
-                fileURI = 'file:///home/nicholas/Documents/theia-switch-workspace/sample-workspace-2/';
-                return false;
-            }
+        //     var sw2_element = document.getElementById('sw2');
+        //     sw2_element.onclick = function () {
+        //         fileURI = 'file:///home/nicholas/Documents/theia-switch-workspace/sample-workspace-2/';
+        //         return false;
+        //     }
 
-            var cw_element = document.getElementById('cw');
-            cw_element.onclick = function () {
-                alert(fileURI);
-                return false;
-            }
-        }
+        //     var cw_element = document.getElementById('cw');
+        //     cw_element.onclick = function () {
+        //         alert(fileURI);
+        //         return false;
+        //     }
+        // }
 
-        window.onload = init;
+        // window.onload = init;
+
+        // $(document).ready(function () {
+        //     $('theia').load(function () {
+        //         var fileURI = 'file:///home/nicholas/Documents/theia-switch-workspace/sample-workspace-1/';
+        //         var theia_iframe = document.getElementById('theia').contentWindow;
+        //         theia_iframe.postMessage(fileURI, "*")
+        //         // write your code here....
+        //     }
+        // }
+        // function postTheMessage() {
+        //     var fileURI = 'file:///home/nicholas/Documents/theia-switch-workspace/sample-workspace-1/';
+        //     var myIframe = document.getElementById('theia');
+        //     myIframe.addEventListener("load", function () {
+        //         this.contentWindow.postTheMessage(fileURI, "*");
+        //     }
+        // }
+
+        // windows.onload = postTheMessage;
 
         function postTheMessage() {
-            var theia_iframe = document.getElementById('theia').contentWindow;
-            theia_iframe.postMessage(fileURI, "*")
-            // alert(fileURI);
+                    var fileURI = 'file:///home/nicholas/Documents/theia-switch-workspace/sample-workspace-1/';
+                    var theia_iframe = document.getElementById('theia').contentWindow;
+                    theia_iframe.postMessage(fileURI, "*")
+                    // alert(fileURI);
+                }
+
+        function myFunction(){
+            setTimeout(postTheMessage, 5000);
         }
 
-        window.onload = send_fileURI;
+        window.onload = myFunction;
 
     </script>
 </BODY>
