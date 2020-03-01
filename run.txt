@@ -1,1 +1,3 @@
 yarn run start ../lab1 --plugins=local-dir:/home/nicholas/Documents/theia-switch-workspace/plugins
+
+yarn run start --plugins=local-dir:/home/nicholas/Documents/theia-switch-workspace/plugins
