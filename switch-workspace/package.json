@@ -14,8 +14,7 @@
     "@theia/filesystem" : "latest"
   },
   "devDependencies": {
-    "rimraf": "latest",
-    "typescript": "latest"
+    "rimraf": "latest"
   },
   "scripts": {
     "prepare": "yarn run clean && yarn run build",

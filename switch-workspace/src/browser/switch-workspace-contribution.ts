@@ -60,7 +60,7 @@ export class SwitchWorkspaceFrontendContribution implements FrontendApplicationC
             if ( event.data.startsWith('setImmediate') ) {
                 return;
             }
-            alert("switching workspace to " + event.data);
+            // alert("switching workspace to " + event.data);
             this.switchWorkspace(event);
           } catch (e) {
             console.log(e)
