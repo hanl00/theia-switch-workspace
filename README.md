@@ -1,4 +1,6 @@
 # switch-workspace
+An Eclipse Theia extension that allows users to switch workspace easily, instead of using File -> Open Workspace -> Folder, given file URI. E.g. students selecting workspaces from X available labs exercises.
+
 The example of how to build the Theia-based applications with the switch-workspace.
 
 ## Getting started
